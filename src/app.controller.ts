@@ -14,4 +14,14 @@ export class AppController {
   sendMessag(@Body() data: any){
     return this.appService.sendMsg(data.data);
   }
+
+  @Post('users')
+  addUser(@Body() user: {name: string, age: number, tel: string}){
+    return this.appService.addUser(user);
+  }
+
+  @Get('users')
+  ViewAllUsers(){
+    return this.appService.getAllUsers();
+  }
 }

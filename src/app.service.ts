@@ -12,6 +12,16 @@ export class AppService {
     return res
   }
 
+  addUser(newUser: {name: string, age: number, tel: string}): any{
+    const res = this.client.send('add_user', newUser);
+
+    return res
+  }
+
+  getAllUsers(): Array<{name: string, age: number, tel: string}> | any{
+    return this.client.send('view_users', {});
+  }
+
   getHello(): string {
     return 'Hello World!';
   }
